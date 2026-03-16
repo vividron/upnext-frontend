@@ -1,4 +1,10 @@
 const API_PATHS = {
+    AUTH:{
+        SPOTIFY_LOGIN: "/auth/spotify",
+        GET_USER: "/auth/me",
+        DELETE_ACCOUNT: "/auth/account",
+    },
+    
     ROOM: {
         CREATE: "/rooms/create",
         GET_ALL: "/rooms",

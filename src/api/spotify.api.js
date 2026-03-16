@@ -1,5 +1,5 @@
-import api from "./config/axios";
-import API_PATHS from "./utils/apiPaths";
+import api from "./api";
+import API_PATHS from "./apiPaths";
 
 // Get user playlists
 export const getUserPlaylists = async (limit, offset) => {
