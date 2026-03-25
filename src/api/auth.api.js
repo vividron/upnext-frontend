@@ -2,7 +2,7 @@ import api from "./api";
 import API_PATHS from "./apiPaths";
 
 export const spotifyLogin = () => {
-    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/auth/spotify`;
+    window.location.href = API_PATHS.AUTH.SPOTIFY_LOGIN;
 }
 
 export const getCurrentUser = async () => {

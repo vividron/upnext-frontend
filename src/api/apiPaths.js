@@ -1,6 +1,6 @@
 const API_PATHS = {
     AUTH:{
-        SPOTIFY_LOGIN: "/auth/spotify",
+        SPOTIFY_LOGIN: `${import.meta.env.VITE_API_BASE_URL}/auth/spotify`,
         GET_USER: "/auth/me",
         DELETE_ACCOUNT: "/auth/account",
     },

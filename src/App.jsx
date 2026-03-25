@@ -26,8 +26,12 @@ function App() {
       element: <AppLayout />,
       children: [
         { index: true, element: <LandingPage /> },
-        { path: "/auth/callback", element: <AuthCallbackPage /> },
       ],
+    },
+    /* OAuth callback route*/
+    {
+      path: "/auth/callback",
+      element: <AuthCallbackPage />
     },
 
     /* Protected routes */
