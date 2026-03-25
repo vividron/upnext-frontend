@@ -4,25 +4,25 @@
   --font-display: "DM Sans", "Inter", sans-serif;
 
   /* Spotify Colors */
-  --color-spotify-green: #1DB954;
-  --color-spotify-green-hover: #1ed760;
+  --color-primary: #1ed65e;
+  --color-primary-container: #1db954;
+  --color-primary-soft: #53e076;
 
-  --bg-main: #121212;
-  --bg-surface: #181818;
-  --bg-surface-hover: #282828;
-  --bg-elevated: #242424;
+  --surface-lowest: #0e0e0e;
+  --surface: #131313;
+  --surface-container: #201f1f;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
 
-  --text-primary: #ffffff;
+  --text-primary: #e5e2e1;
   --text-secondary: #b3b3b3;
   --text-muted: #8a8a8a;
-
-  --border-subtle: rgba(255, 255, 255, 0.1);
 }
 
 @layer base {
   html {
     font-family: var(--font-display);
-    background-color: var(--bg-main);
+    background-color: var(--surface-lowest);
     color: var(--text-primary);
     letter-spacing: -0.01em;
   }
@@ -80,36 +80,17 @@
 
 @layer utilities {
 
-  /* Spotify Button */
-  .btn-spotify {
-    background-color: var(--color-spotify-green);
-    color: black;
-    border-radius: var(--radius-pill);
-    font-weight: 600;
-    padding: 10px 18px;
-    transition: all 0.2s var(--ease-smooth);
-  }
+  .bg-surface-lowest { background: var(--surface-lowest); }
+  .bg-surface { background: var(--surface); }
+  .bg-surface-container { background: var(--surface-container); }
+  .bg-surface-high { background: var(--surface-container-high); }
+  .bg-surface-highest { background: var(--surface-container-highest); }
 
-  .btn-spotify:hover {
-    background-color: var(--color-spotify-green-hover);
-    transform: scale(1.03);
-  }
-
-  .btn-spotify:active {
-    transform: scale(0.97);
-  }
-
-  /* Card */
-  .card {
-    background-color: var(--bg-surface);
-    border-radius: var(--radius-card);
-    padding: 16px;
-    transition: all 0.2s var(--ease-smooth);
-  }
-
-  .card:hover {
-    background-color: var(--bg-surface-hover);
-  }
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: var(--text-secondary); }
+  .text-muted { color: var(--text-muted); }
 
 }
+
+
 
