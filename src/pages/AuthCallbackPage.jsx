@@ -68,9 +68,9 @@ const AuthCallbackPage = () => {
                 <div className="flex items-center gap-5 mb-2">
 
                     {/* UpNext */}
-                    <div className="flex items-center mr-3">
-                        <img src="/logos/UpNext-Logo.png" alt="UpNext" className="w-12 h-12 object-contain" />
-                        <span className="text-[15px] text-primary font-semibold tracking-tight">
+                    <div className="flex items-center gap-1 mr-3">
+                        <img src="/logos/UpNext-Logo.svg" alt="UpNext" className="w-7 h-7 object-contain" />
+                        <span className="text-[15px] text-main font-semibold tracking-tight">
                             UpNext
                         </span>
                     </div>
@@ -89,12 +89,12 @@ const AuthCallbackPage = () => {
                     Control the Vibe Together
                 </h2>
 
-                <p className="text-secondary text-sm mb-6">
+                <p className="text-sub text-sm mb-6">
                     Generate fair, crowd-powered queues for your space. Let users vote, match playlists, and keep the vibe perfect.
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-3 text-sm text-secondary mb-6">
+                <ul className="space-y-3 text-sm text-sub mb-6">
                     <li className="flex items-start gap-3">
                         <ListStart size={18} className="mt-0.5 shrink-0" />
                         <span>Smart queue powered by votes</span>
