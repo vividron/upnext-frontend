@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar.jsx";
+import Footer from "./Footer.jsx";
 
 export default function AppLayout() {
   const navLinks = [
@@ -13,11 +14,12 @@ export default function AppLayout() {
 
       <NavBar navLinks={navLinks} />
 
-      <main className="flex-1 px-4 py-6 lg:px-8 lg:py-8">
+      <main className="relative flex-1 px-4 py-6 lg:px-8 lg:py-8">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(30,214,94,0.12),transparent_30%)]"/>
         <Outlet />
       </main>
 
-      <div>footer</div>
+      <Footer navLinks={navLinks} />
 
     </div>
   );

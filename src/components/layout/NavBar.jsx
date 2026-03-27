@@ -28,7 +28,7 @@ const NavBar = ({ navLinks }) => {
                             <a
                                 key={link.name}
                                 href={link.to}
-                                className={"flex flex-col items-center group hover:text-primary transition"}
+                                className={"flex flex-col items-center group text-sub hover:text-primary transition"}
                             >
                                 <span>{link.name}</span>
                                 <span
