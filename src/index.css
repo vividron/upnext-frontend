@@ -25,11 +25,16 @@
     background-color: var(--surface-lowest);
     color: var(--text-primary);
     letter-spacing: -0.01em;
+    scroll-behavior: smooth;
   }
 
   body {
     background-color: var(--bg-main);
     color: var(--text-primary);
+  }
+
+  section {
+    scroll-margin-top: 88px; /* keep section visible when sticky header is present */
   }
 
   /* Inputs */
@@ -80,17 +85,36 @@
 
 @layer utilities {
 
-  .bg-surface-lowest { background: var(--surface-lowest); }
-  .bg-surface { background: var(--surface); }
-  .bg-surface-container { background: var(--surface-container); }
-  .bg-surface-high { background: var(--surface-container-high); }
-  .bg-surface-highest { background: var(--surface-container-highest); }
+  .bg-surface-lowest {
+    background: var(--surface-lowest);
+  }
 
-  .text-primary { color: var(--text-primary); }
-  .text-secondary { color: var(--text-secondary); }
-  .text-muted { color: var(--text-muted); }
+  .bg-surface {
+    background: var(--surface);
+  }
+
+  .bg-surface-container {
+    background: var(--surface-container);
+  }
+
+  .bg-surface-high {
+    background: var(--surface-container-high);
+  }
+
+  .bg-surface-highest {
+    background: var(--surface-container-highest);
+  }
+
+  .text-main {
+    color: var(--text-primary);
+  }
+
+  .text-sub {
+    color: var(--text-secondary);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
 
 }
-
-
-
