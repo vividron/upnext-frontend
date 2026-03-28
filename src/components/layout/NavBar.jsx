@@ -13,7 +13,7 @@ const NavBar = ({ navLinks }) => {
 
     return (
         <>
-            <header className="sticky top-0 inset-x-0 z-10 backdrop-blur-xl bg-surface/70 border-b border-white/10">
+            <header className="sticky top-0 inset-x-0 z-10 backdrop-blur-xl bg-[rgba(19,19,19,0.5)] border-b border-white/10">
                 <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
                     {/* Logo */}
