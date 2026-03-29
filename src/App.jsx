@@ -3,7 +3,7 @@ import { useAuth } from "./context/AuthContext.jsx"
 import SpotifyLoader from "./components/SpotifyLoader.jsx";
 import AppLayout from "./components/layout/AppLayout.jsx";
 import RoomPage from "./pages/RoomPage.jsx";
-import LandingPage from "./pages/LandingPage.jsx";
+import HomePage from "./pages/home/HomePage.jsx";
 import AuthCallbackPage from "./pages/AuthCallbackPage.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
@@ -25,7 +25,7 @@ function App() {
       path: "/",
       element: <AppLayout />,
       children: [
-        { index: true, element: <LandingPage /> },
+        { index: true, element: <HomePage /> },
       ],
     },
     /* OAuth callback route*/
@@ -39,7 +39,7 @@ function App() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: "/room/:roomId",
+          path: "/rooms/:roomId",
           element: <RoomPage />,
         },
       ],
