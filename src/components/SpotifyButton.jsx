@@ -16,7 +16,7 @@ const SpotifyButton = ({
             onClick={onClick}
             disabled={isDisabled}
             className={clsx(
-                "relative flex items-center justify-center gap-2 rounded-full px-4.5 py-3 text-[15px] font-extrabold text-black bg-primary",
+                "relative flex items-center justify-center gap-2 rounded-full px-4.5 py-3 text-[15px] font-bold text-black bg-primary cursor-pointer",
                 disabled ? "cursor-not-allowed opacity-60" : "transition-all duration-200 ease-in-out hover:bg-primary-soft hover:scale-[1.03] active:scale-[0.97]",
                 className
             )}

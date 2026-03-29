@@ -6,13 +6,15 @@ const roomErrorCodes = [
     "ROOM_INACTIVE",
     "USER_ALREADY_PRESENT",
     "USER_NOT_FOUND",
+    "USER_NOT_PREMIUM",
     "ROOM_ACTIVE"
 ]
 
 // Create room
 export const createRoom = async (title) => {
     try {
-        await api.post(API_PATHS.ROOM.CREATE, { title });
+        const { data } = await api.post(API_PATHS.ROOM.CREATE, { title });
+        return data;
     } catch (error) {
         throw new Error("Failed to create room")
     }
@@ -42,7 +44,7 @@ export const getRoomState = async (roomId) => {
 // join room
 export const joinRoom = async (roomId) => {
     try {
-        const { data } = await api.get(API_PATHS.ROOM.JOIN(roomId));
+        const { data } = await api.post(API_PATHS.ROOM.JOIN(roomId));
         return data;
     } catch (error) {
         if (roomErrorCodes.includes(error?.code)) throw error;
@@ -53,7 +55,7 @@ export const joinRoom = async (roomId) => {
 // leave room
 export const leaveRoom = async (roomId) => {
     try {
-        await api.get(API_PATHS.ROOM.LEAVE(roomId));
+        await api.post(API_PATHS.ROOM.LEAVE(roomId));
     } catch (error) {
         if (roomErrorCodes.includes(error?.code)) throw error;
         throw new Error("Failed to leave the room");
@@ -63,9 +65,9 @@ export const leaveRoom = async (roomId) => {
 // delete room if not active
 export const deleteRoom = async (roomId) => {
     try {
-        await api.get(API_PATHS.ROOM.DELETE(roomId));
+        await api.delete(API_PATHS.ROOM.DELETE(roomId));
     } catch (error) {
         if (roomErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to leave the room");
+        throw new Error("Failed to delete the room");
     }
 }
