@@ -57,8 +57,6 @@ const AuthCallbackPage = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-surface-lowest px-4 select-none">
-
-            {/* Background Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(30,214,94,0.12),transparent_60%)] pointer-events-none" />
 
             {/* Card */}
@@ -68,20 +66,20 @@ const AuthCallbackPage = () => {
                 <div className="flex items-center gap-5 mb-2">
 
                     {/* UpNext */}
-                    <div className="flex items-center gap-1 mr-3">
+                    <a href="/#hero" className="flex items-center gap-1 mr-3">
                         <img src="/logos/UpNext-Logo.svg" alt="UpNext" className="w-7 h-7 object-contain" />
                         <span className="text-[15px] text-main font-semibold tracking-tight">
                             UpNext
                         </span>
-                    </div>
+                    </a>
 
                     {/* Divider */}
                     <div className="w-px h-7 bg-white/10"></div>
 
                     {/* Spotify */}
-                    <div className="flex items-center">
+                    <a href='https://open.spotify.com/' target="_blank" className="flex items-center">
                         <img src="/logos/Spotify-Logo.png" alt="Spotify" className="h-18 object-contain" />
-                    </div>
+                    </a>
                 </div>
 
                 {/* Title */}
@@ -111,7 +109,6 @@ const AuthCallbackPage = () => {
                     </li>
                 </ul>
 
-                {/* Pills */}
                 <div className="flex flex-wrap gap-2 mb-6">
                     <div className="px-3 py-1 flex items-center gap-2 text-xs rounded-full bg-white/5 border border-white/10">
                         <RefreshCcw className='size-4 text-blue-400' />
