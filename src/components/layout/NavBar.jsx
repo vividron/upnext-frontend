@@ -40,7 +40,8 @@ const NavBar = ({ navLinks }) => {
                             </a>
                         ))}
                         {isAuthenticated ? <UserBadge /> : (
-                            <SpotifyButton onClick={() => navigate('/auth/callback')} className="bg-primary-container rounded-full font-bold px-6 py-2.5! ml-4 text-sm! cursor-pointer">
+                            <SpotifyButton onClick={() => navigate('/auth/callback')} className={clsx("bg-primary-container rounded-full font-bold px-6 py-2.5! ml-4 text-sm! cursor-pointer"
+                            )}>
                                 Sign In
                             </SpotifyButton>
                         )}
@@ -58,19 +59,21 @@ const NavBar = ({ navLinks }) => {
 
             {/* Drawer */}
             <div
-                className={`fixed inset-0 z-20 ${isOpen ? "visible" : "invisible"}`}
+                className={clsx(
+                    "fixed inset-0 z-20 transition-opacity duration-300",
+                    isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                )}
             >
                 <div
                     onClick={() => setIsOpen(false)}
                     className={clsx(
-                        "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300",
+                        "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-500",
                         isOpen ? "opacity-100" : "opacity-0"
                     )}
                 />
 
                 {/* Drawer (RIGHT SIDE) */}
-                <div
-                    className={clsx("absolute right-0 top-0 h-full w-[80%] max-w-sm bg-surface/95 backdrop-blur-xl border-l border-white/10 flex flex-col",
+                <div className={clsx("absolute right-0 top-0 h-full w-[80%] max-w-sm bg-surface/95 backdrop-blur-xl border-l border-white/10 flex flex-col",
                         "transition-transform duration-300 ease-out",
                         isOpen ? "translate-x-0" : "translate-x-full"
                     )}
@@ -81,8 +84,7 @@ const NavBar = ({ navLinks }) => {
                         <div>
                             {isAuthenticated ? (
                                 /* User */
-                                < div
-                                    className={"flex items-center gap-3 bg-surface-high px-3 py-1.5 rounded-full hover:bg-surface-highest transition border border-black/20 cursor-pointer"}
+                                < div className={"flex items-center gap-3 bg-surface-high px-3 py-1.5 rounded-full hover:bg-surface-highest transition border border-black/20 cursor-pointer"}
                                 >
                                     {/* Profile image */}
                                     {user?.profileImage ? (
@@ -108,7 +110,9 @@ const NavBar = ({ navLinks }) => {
                                         setIsOpen(false);
                                         navigate('/auth/callback');
                                     }}
-                                    className="w-full bg-primary-container rounded-full font-semibold py-2.5!"
+                                    className={clsx("bg-primary-container rounded-full font-bold px-6 py-2.5! text-sm! cursor-pointer",
+                                        isOpen ? "block" : "hidden"
+                                    )}
                                 >
                                     Sign In
                                 </SpotifyButton>
