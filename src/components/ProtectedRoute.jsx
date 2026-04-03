@@ -1,8 +1,16 @@
-import React from 'react'
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
+import SpotifyLoader from "./SpotifyLoader.jsx";
 
 const ProtectedRoute = () => {
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return <SpotifyLoader />
+  }
+
   return (
-    <div>ProtectedRoute</div>
+    isAuthenticated ? <Outlet /> : <Navigate to='/auth/callback' replace />
   )
 }
 
