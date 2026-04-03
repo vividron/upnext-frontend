@@ -8,6 +8,7 @@ const roomErrorCodes = [
     "USER_ALREADY_PRESENT",
     "USER_NOT_FOUND",
     "USER_NOT_PREMIUM",
+    "OTHER_ROOM_ACTIVE",
     "ROOM_ACTIVE"
 ]
 
