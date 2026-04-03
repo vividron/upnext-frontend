@@ -1,5 +1,6 @@
 import api from "./api";
 import API_PATHS from "./apiPaths";
+import { errorHandler } from "./errorHandler";
 
 // Get user playlists
 export const getUserPlaylists = async (limit, offset) => {
@@ -7,7 +8,7 @@ export const getUserPlaylists = async (limit, offset) => {
         const { data } = await api.get(API_PATHS.SPOTIFY.GET_PLAYLISTS, { limit, offset });
         return data
     } catch (error) {
-        throw new Error("Failed to fetch playlists")
+        errorHandler(error, "Failed to fetch playlists");
     }
 };
 
@@ -17,6 +18,6 @@ export const getPlaylistItems = async (playlistId, limit) => {
         const { data } = await api.get(API_PATHS.SPOTIFY.GET_PLAYLIST_ITEMS(playlistId), { limit });
         return data;
     } catch (error) {
-        throw new Error("Failed to fetch playlist items")
+        errorHandler(error, "Failed to fetch playlist items")
     }
 }

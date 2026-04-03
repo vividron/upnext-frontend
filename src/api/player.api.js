@@ -1,5 +1,6 @@
 import api from "./api";
 import API_PATHS from "./apiPaths";
+import { errorHandler } from "./errorHandler";
 
 const playerErrorCodes = [
     "INVALID_SONG_ID",
@@ -13,8 +14,7 @@ export const getPlayBackState = async (roomId) => {
         const { data } = await api.get(API_PATHS.PLAYER.STATE(roomId));
         return data
     } catch (error) {
-        if (playerErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to fetch player state");
+        errorHandler(error, "Failed to fetch player state", playerErrorCodes);
     }
 }
 
@@ -23,8 +23,7 @@ export const resumePlayer = async (roomId) => {
     try {
         await api.post(API_PATHS.PLAYER.RESUME(roomId));
     } catch (error) {
-        if (playerErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to execute command");
+        errorHandler(error, "Failed to execute command", playerErrorCodes);
     }
 }
 
@@ -33,8 +32,7 @@ export const pausePlayer = async (roomId) => {
     try {
         await api.post(API_PATHS.PLAYER.PAUSE(roomId));
     } catch (error) {
-        if (playerErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to execute command");
+        errorHandler(error, "Failed to execute command", playerErrorCodes);
     }
 }
 
@@ -43,8 +41,7 @@ export const playNext = async (roomId) => {
     try {
         await api.post(API_PATHS.PLAYER.NEXT(roomId));
     } catch (error) {
-        if (playerErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to execute command");
+        errorHandler(error, "Failed to execute command", playerErrorCodes);
     }
 }
 
@@ -53,8 +50,7 @@ export const playPrevious = async (roomId) => {
     try {
         await api.post(API_PATHS.PLAYER.PREVIOUS(roomId));
     } catch (error) {
-        if (playerErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to execute command");
+        errorHandler(error, "Failed to execute command", playerErrorCodes);
     }
 }
 
@@ -63,7 +59,6 @@ export const seekToPosition = async (roomId) => {
     try {
         await api.post(API_PATHS.PLAYER.SEEK(roomId));
     } catch (error) {
-        if (playerErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to execute command");
+        errorHandler(error, "Failed to execute command", playerErrorCodes);
     }
 }

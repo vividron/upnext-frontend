@@ -3,7 +3,7 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
-    timeout: 80000,
+    timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -27,27 +27,12 @@ axiosInstance.interceptors.response.use(
     },
     (error) => {
 
-        // network error
-        if (!navigator.onLine) {
-            return Promise.reject(new Error("No internet connection. Please check your network."));
-        }
+        const err = error.response.data.error;
 
-        // request made but no response 
-        if (!error.response) {
-            return Promise.reject(new Error("Unable to reach server"));
-        }
-
-        const data = error.response.data;
-
-        if (data?.code === "INVALID_TOKEN") {
+        if (err?.code === "INVALID_TOKEN") {
             localStorage.removeItem("token");
             localStorage.removeItem("user");
-            window.location.href = "/signin";
-            return Promise.reject(error);
-        }
-
-        if (error.response.status === 500) {
-            return Promise.reject(new Error("Server error. Please try again later."));
+            window.location.href = "/";
         }
 
         return Promise.reject(error);

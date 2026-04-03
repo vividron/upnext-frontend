@@ -1,5 +1,6 @@
 import api from "./api";
 import API_PATHS from "./apiPaths";
+import { errorHandler } from "./errorHandler";
 
 const queueErrorCodes = [
     "INVALID_SONGS_INPUT",
@@ -13,8 +14,7 @@ export const addPlaylistToQueue = async (roomId, songs) => {
         const { data } = await api.get(API_PATHS.QUEUE.ADD_PLAYLIST(roomId), { songs });
         return data
     } catch (error) {
-        if (queueErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to add playlist to the queue");
+        errorHandler(error, "Failed to add playlist to the queue", queueErrorCodes);
     }
 }
 
@@ -23,8 +23,7 @@ export const upvoteMatchedSongs = async (roomId, songIds) => {
         const { data } = await api.get(API_PATHS.QUEUE.UPVOTE_MATCHES(roomId), { songIds });
         return data
     } catch (error) {
-        if (queueErrorCodes.includes(error?.code)) throw error;
-        throw new Error("Failed to upvote matched songs");
+        errorHandler(error, "Failed to upvote matched songs", queueErrorCodes);
     }
 }
 
@@ -33,6 +32,6 @@ export const clearQueue = async (roomId) => {
         const { data } = await api.get(API_PATHS.QUEUE.CLEAR(roomId));
         return data
     } catch (error) {
-        throw new Error("Failed to clear queue");
+        errorHandler(error, "Failed to clear queue", queueErrorCodes);
     }
 }
