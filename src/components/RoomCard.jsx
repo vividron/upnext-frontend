@@ -28,11 +28,24 @@ const RoomCard = ({
             </div>
 
             {/* Button */}
-            <div className="flex gap-3 md:gap-5">
-                {/*Delete button*/}
-                <button disabled={isDeleting} onClick={() => deleteRoom(room._id)} className="text-[0.6rem] md:text-sm font-semibold text-sub hover:text-(--text-primary) hover:scale-[1.03] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 active:scale-[0.97] transition duration-200 ease-in-out cursor-pointer">
-                    Delete
-                </button>
+            <div className="flex items-center gap-3 md:gap-5">
+                {
+                    room?.isActive ? (
+                        <div className="flex items-center gap-2">
+                            <span className="size-1 md:size-1.5 rounded-full bg-green-400" />
+                            <span className="text-main text-[0.6rem] md:text-sm font-semibold">Active</span>
+                        </div>
+                    ) : (
+                        /*Delete button*/
+                        <button
+                            disabled={isDeleting}
+                            onClick={() => deleteRoom(room._id)}
+                            className="text-[0.6rem] md:text-sm font-semibold text-sub hover:text-(--text-primary) hover:scale-[1.03] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 active:scale-[0.97] transition duration-200 ease-in-out cursor-pointer"
+                        >
+                            Delete
+                        </button>
+                    )
+                }
                 {/*Join button */}
                 <SpotifyButton onClick={() => JoinRoom(room._id)} className="px-3! py-2! md:px-4.5! md:py-3! text-[0.6rem]! md:text-sm! font-semibold">
                     Join
