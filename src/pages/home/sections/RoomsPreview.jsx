@@ -53,10 +53,11 @@ const RoomsSection = () => {
 
     const handleCreateRoom = async (title) => {
         try {
+            setIsCreateModalOpen(false);
             setIsCreating(true);
 
             const { room } = await createRoom(title);
-            setRooms(prevRooms => [...prevRooms, room]);
+            setRooms(prevRooms => [...prevRooms, room].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
 
             // Join user to the room immediately after creating it
             handleJoinRoom(room._id);
@@ -69,7 +70,7 @@ const RoomsSection = () => {
     };
 
     const handleJoinRoom = (roomId) => {
-        navigate(`/rooms/${roomId}`);
+        navigate(`/rooms/${roomId}/join`);
     }
 
     const handleDeleteRoom = async (roomId) => {
@@ -155,7 +156,12 @@ const RoomsSection = () => {
                     </div>
                 )}
             </div>
-            <CreateRoomModal isCreating={isCreating} isOpen={isCreateModalOpen} onClose={() => setIsCreateModalOpen(false)} onCreate={handleCreateRoom} />
+            <CreateRoomModal
+                isCreating={isCreating}
+                isOpen={isCreateModalOpen}
+                onClose={() => setIsCreateModalOpen(false)}
+                onCreate={handleCreateRoom}
+            />
         </section>
     );
 }
