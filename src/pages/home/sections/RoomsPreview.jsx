@@ -140,18 +140,20 @@ const RoomsSection = () => {
                                 <SpotifyLoader />
                             </div>
                         ) : (
-                            <ul className="space-y-4">
-                                {rooms.map((room) => (
-                                    <li key={room._id}>
-                                        <RoomCard
-                                            room={room}
-                                            deleteRoom={handleDeleteRoom}
-                                            isDeleting={isDeleting}
-                                            JoinRoom={handleJoinRoom}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="max-h-95 overflow-y-auto pr-2">
+                                <ul className="space-y-4">
+                                    {rooms.map((room) => (
+                                        <li key={room._id}>
+                                            <RoomCard
+                                                room={room}
+                                                deleteRoom={handleDeleteRoom}
+                                                isDeleting={isDeleting}
+                                                JoinRoom={handleJoinRoom}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         )}
                     </div>
                 )}
