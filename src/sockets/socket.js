@@ -19,13 +19,17 @@ export const disconnectSocket = () => {
     socket.disconnect();
 }
 
-export const isConnected = () => {
+export const isSocketConnected = () => {
     return socket.connected;
 }
 
 export const listenEvent = (event, callback) => {
     socket.on(event, callback);
 };
+
+export const listenEventOnce = (event, callback) => {
+    socket.once(event, callback);
+}
 
 export const removeListener = (event, callback) => {
     socket.off(event, callback);
