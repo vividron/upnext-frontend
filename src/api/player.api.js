@@ -28,9 +28,9 @@ export const resumePlayer = async (roomId) => {
 }
 
 // pause player
-export const pausePlayer = async (roomId) => {
+export const pausePlayer = async (roomId, isStateSync) => {
     try {
-        await api.post(API_PATHS.PLAYER.PAUSE(roomId));
+        await api.post(API_PATHS.PLAYER.PAUSE(roomId), { isStateSync });
     } catch (error) {
         errorHandler(error, "Failed to execute command", playerErrorCodes);
     }
