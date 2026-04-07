@@ -62,7 +62,7 @@ const UserBadge = () => {
 
             {/* Dropdown */}
             {open && (
-                <div className="absolute -left-2.5 mt-2 w-40 p-2 bg-surface-high border border-white/10 rounded-md shadow-lg overflow-hidden z-50">
+                <div className="absolute mt-2 w-40 p-2 bg-surface-high border border-white/10 rounded-md shadow-lg overflow-hidden z-50">
                     <button
                         onClick={logout}
                         className="w-full text-left px-4 py-2 text-sm text-main rounded-md hover:bg-(--surface-container-highest) transition focus"
