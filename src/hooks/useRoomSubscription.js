@@ -3,7 +3,7 @@ import {
     connectsocket,
     disconnectSocket,
     emitWithRetry,
-    isConnected,
+    isSocketConnected,
     listenEvent,
     removeListener,
 } from "../sockets/socket.js";
@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export const useRoomSubscription = ({ roomId, onSuccess, onError }) => {
-    const [isSubscribing, setIsSubscribing] = useState(false);
+    const [isSubscribing, setIsSubscribing] = useState(true);
     const isActiveRef = useRef(true);
     const { logout } = useAuth();
     const navigate = useNavigate();
@@ -22,12 +22,8 @@ export const useRoomSubscription = ({ roomId, onSuccess, onError }) => {
         isActiveRef.current = true;
 
         const handleSubscribe = async () => {
-            // prevent duplicate calls
-            if (isSubscribing) return;
-
-            setIsSubscribing(true);
             try {
-                console.log("Subscribing to room:", roomId);
+                setIsSubscribing(true);
 
                 const res = await emitWithRetry(EVENTS.ROOM_SUBSCRIBE, { roomId });
 
@@ -40,7 +36,7 @@ export const useRoomSubscription = ({ roomId, onSuccess, onError }) => {
                     throw new Error(res?.error?.message || "Failed to subscribe room");
                 }
 
-                onSuccess();
+                await onSuccess();
 
             } catch (err) {
                 if (!isActiveRef.current) return;
@@ -64,7 +60,7 @@ export const useRoomSubscription = ({ roomId, onSuccess, onError }) => {
 
         listenEvent("connect_error", handleConnectionError);
 
-        if (isConnected()) {
+        if (isSocketConnected()) {
             handleSubscribe();
         } else {
             listenEvent("connect", handleSubscribe);
