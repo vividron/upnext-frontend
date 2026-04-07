@@ -11,7 +11,7 @@ const queueErrorCodes = [
 
 export const addPlaylistToQueue = async (roomId, songs) => {
     try {
-        const { data } = await api.get(API_PATHS.QUEUE.ADD_PLAYLIST(roomId), { songs });
+        const { data } = await api.post(API_PATHS.QUEUE.ADD_PLAYLIST(roomId), { songs });
         return data
     } catch (error) {
         errorHandler(error, "Failed to add playlist to the queue", queueErrorCodes);
@@ -20,7 +20,7 @@ export const addPlaylistToQueue = async (roomId, songs) => {
 
 export const upvoteMatchedSongs = async (roomId, songIds) => {
     try {
-        const { data } = await api.get(API_PATHS.QUEUE.UPVOTE_MATCHES(roomId), { songIds });
+        const { data } = await api.post(API_PATHS.QUEUE.UPVOTE_MATCHES(roomId), { songIds });
         return data
     } catch (error) {
         errorHandler(error, "Failed to upvote matched songs", queueErrorCodes);
@@ -29,7 +29,7 @@ export const upvoteMatchedSongs = async (roomId, songIds) => {
 
 export const clearQueue = async (roomId) => {
     try {
-        const { data } = await api.get(API_PATHS.QUEUE.CLEAR(roomId));
+        const { data } = await api.delete(API_PATHS.QUEUE.CLEAR(roomId));
         return data
     } catch (error) {
         errorHandler(error, "Failed to clear queue", queueErrorCodes);
