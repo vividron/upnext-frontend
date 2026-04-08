@@ -95,7 +95,7 @@ export const usePlayer = (roomId, { isHost, queue, setQueue }) => {
         progressIntervalRef.current = setInterval(() => {
 
             // if song ended and player playing next don't update the progress
-            if(isTransitioningRef.current) return;
+            if (isTransitioningRef.current) return;
 
             const player = playerRef.current;
             if (!player || !player.song) return;
@@ -135,13 +135,6 @@ export const usePlayer = (roomId, { isHost, queue, setQueue }) => {
     const validatePlayerSync = async (devicePlaybackState, appPlaybackState) => {
         if (devicePlaybackState && appPlaybackState && !appPlaybackState?.isPlaying && playbackLoading.updating) return;
 
-        // No device found error
-        if (!devicePlaybackState?.device) {
-            setSyncError("Player sync failed. No active device to play song.");
-            await handlePause({ isStateSync: true });
-            return;
-        }
-
         // compare apps playback state with host device playback state.
         // verify if the song in our app is same as host device's current song.
         const currentlyPlayingSongId = devicePlaybackState?.currentSongId;
@@ -175,6 +168,7 @@ export const usePlayer = (roomId, { isHost, queue, setQueue }) => {
         //     setSyncError(Player sync failed. Progress of the current track is different from device's progress.);
         //     return;
         // }
+        setSyncError(null);
     }
 
     //host device playback polling
@@ -190,17 +184,27 @@ export const usePlayer = (roomId, { isHost, queue, setQueue }) => {
                     const { playbackState } = await getPlayBackState(roomId);
 
                     if (!isMountedRef.current) return;
+                    
+                    // No device found error
+                    if (!playbackState?.device?.id) {
+                        setSyncError("No active player found. Open Spotify on any device and start playback.");
 
-                    // validate player state
-                    if (progressIntervalRef.current && !isTransitioningRef.current) {
-                        await validatePlayerSync(playbackState, playerRef.current);
+                        if (playerRef.current?.isPlaying) {
+                            await handlePause({ isStateSync: true });
+                        }
+
+                    } else {
+                        // validate player state on progress
+                        if (progressIntervalRef.current && !isTransitioningRef.current) {
+                            await validatePlayerSync(playbackState, playerRef.current);
+                        } else {
+                            setSyncError(null);
+                        }
                     }
-                    // set the device on which the song is playing from all the available devises
-                    const hasPlayerDevice = playbackState?.devices?.some((d) => d?.id === playbackState?.device?.id)
-                    const device = hasPlayerDevice ? playbackState.device : playbackState?.devices?.[0];
 
-                    setPlayerState(prev => ({ ...prev, device: device ?? null }));
+                    setPlayerState(prev => ({ ...prev, device: playbackState?.device ?? null }));
                 } catch (error) {
+                    console.warn(error)
                     if (!isMountedRef.current) return;
                     toast.error("Failed to get current playback state");
                     navigate("/");
