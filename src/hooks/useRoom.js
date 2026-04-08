@@ -40,6 +40,17 @@ export const useRoom = (roomId, { isHost }) => {
         isHostRef.current = isHost;
     }, [isHost, roomId])
 
+    // Update title 
+    useEffect(() => {
+        if (room?.title) {
+            document.title = `${room.title} | UpNext`;
+        }
+
+        return () => {
+            document.title = "UpNext – Collaborative Spotify Rooms & Music Voting";
+        };
+    }, [room?.title]);
+
     useEffect(() => {
         const updateMemberCount = (count) => {
             setRoom(prev => ({ ...prev, memberCount: count }));
