@@ -13,6 +13,7 @@ import SpotifyButton from '../components/SpotifyButton.jsx';
 import clsx from 'clsx';
 import Player from '../components/Player.jsx';
 import SongCard from '../components/SongCard.jsx';
+import SongsDialog from '../components/SongsDialog.jsx';
 
 const RoomPage = () => {
   const { roomId } = useParams();
@@ -271,6 +272,26 @@ const RoomPage = () => {
           </AnimatePresence>
         </div>
       </div>
+      <SongsDialog
+        isOpen={isAddSongOpen}
+        onClose={() => setIsAddSongOpen(false)}
+        heading="Add Playlist to Queue"
+        actionButtonName="Add"
+        onActionButtonClick={handleAddPlaylistToQueue}
+        processingPlaylistId={queueLoading.addingPlaylist.playlistId}
+        isProcessing={queueLoading.addingPlaylist.adding}
+      />
+
+      <SongsDialog
+        isOpen={isSelectPlaylistOpen}
+        onClose={() => setIsSelectPlaylistOpen(false)}
+        heading="Compare Playlist with Queue"
+        subHeading="Matching songs will be automatically upvoted"
+        actionButtonName="Compare"
+        onActionButtonClick={handleMatchedSongUpVote}
+        processingPlaylistId={queueLoading.upvotingMatchedSong.playlistId}
+        isProcessing={queueLoading.upvotingMatchedSong.upvoting}
+      />
     </div>
   );
 };
