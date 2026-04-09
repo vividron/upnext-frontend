@@ -62,14 +62,7 @@
 
   /* Spotify scrollbar */
   ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  /* Mobile */
-  @media (max-width: 768px) {
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
+    width: 7px;
   }
 
   ::-webkit-scrollbar-track {

@@ -12,16 +12,13 @@ export const useRoom = (roomId, { isHost }) => {
     const isHostRef = useRef(isHost);
     const navigate = useNavigate();
 
-    const handleLeaveRoomClick = () => {
-        setIsLeaveRoomModalOpen(true);
-    };
-
     const handleLeaveRoom = async () => {
         try {
             setIsLeaving(true);
-            setIsLeaveRoomModalOpen(false);
 
             await leaveRoom(roomId);
+
+            setIsLeaveRoomModalOpen(false);
 
             const roomTItle = room?.title ?? "";
             if (isHostRef.current) toast.success(`Room "${roomTItle}" has been closed`);
@@ -58,7 +55,7 @@ export const useRoom = (roomId, { isHost }) => {
 
         const handleRoomEnd = () => {
             if (!isHostRef.current) {
-                toast.error("The host has ended the room.");
+                toast("The host has ended the room.");
                 navigate('/');
             }
         };
@@ -87,7 +84,7 @@ export const useRoom = (roomId, { isHost }) => {
         isLeaving,
         setIsLeaving,
         isLeaveRoomModalOpen,
-        handleLeaveRoomClick,
+        setIsLeaveRoomModalOpen,
         handleLeaveRoom,
     };
 };
