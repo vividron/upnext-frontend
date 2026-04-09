@@ -14,6 +14,7 @@ import clsx from 'clsx';
 import Player from '../components/Player.jsx';
 import SongCard from '../components/SongCard.jsx';
 import SongsDialog from '../components/SongsDialog.jsx';
+import ConfirmationModal from '../components/ConfirmationModal.jsx';
 
 const RoomPage = () => {
   const { roomId } = useParams();
@@ -291,6 +292,24 @@ const RoomPage = () => {
         onActionButtonClick={handleMatchedSongUpVote}
         processingPlaylistId={queueLoading.upvotingMatchedSong.playlistId}
         isProcessing={queueLoading.upvotingMatchedSong.upvoting}
+      />
+
+      <ConfirmationModal
+        isOpen={isLeaveRoomModalOpen}
+        onClose={() => setIsLeaveRoomModalOpen(false)}
+        onConfirm={handleLeaveRoom}
+        isLoading={isLeaving}
+        title="Leave Room?"
+        description={`Are you sure you want to leave "${room?.title ?? roomId}"?`}
+      />
+
+      <ConfirmationModal
+        isOpen={isClearQueueModalOpen}
+        onClose={() => setIsClearQueueModalOpen(false)}
+        onConfirm={handleClearQueue}
+        isLoading={queueLoading.clearingQueue}
+        title="Clear Queue?"
+        description="Are you sure you want to clear the queue? This action cannot be undone."
       />
     </div>
   );
