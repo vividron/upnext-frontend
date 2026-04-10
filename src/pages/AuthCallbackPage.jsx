@@ -1,6 +1,6 @@
 import { useAuth } from '../context/AuthContext'
 import { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { getCurrentUser, spotifyLogin } from "../api/auth.api.js"
 import { ListStart, Music, RefreshCcw, RefreshCw, Zap } from "lucide-react"
 import SpotifyButton from '../components/SpotifyButton.jsx';
@@ -66,12 +66,12 @@ const AuthCallbackPage = () => {
                 <div className="flex items-center gap-5 mb-2">
 
                     {/* UpNext */}
-                    <a href="/#hero" className="flex items-center gap-1 mr-3">
+                    <Link to="/#hero" className="flex items-center gap-1 mr-3">
                         <img src="/logos/UpNext-Logo.svg" alt="UpNext" className="w-7 h-7 object-contain" />
                         <span className="text-[15px] text-main font-semibold tracking-tight">
                             UpNext
                         </span>
-                    </a>
+                    </Link>
 
                     {/* Divider */}
                     <div className="w-px h-7 bg-white/10"></div>
