@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import JoinRoomPage from "./pages/JoinRoomPage.jsx";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage.jsx";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage.jsx";
 
 function App() {
 
@@ -34,6 +35,10 @@ function App() {
         {
           path: "/terms",
           element: <TermsAndConditionsPage />,
+        },
+        {
+          path: "/privacy",
+          element: <PrivacyPolicyPage />,
         },
       ],
     },
