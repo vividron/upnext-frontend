@@ -39,7 +39,7 @@ const JoinRoomPage = () => {
     return (
         <div className="h-screen container mx-auto px-4 py-8">
             <div className="flex flex-col items-center justify-center h-full gap-5 lg:gap-8">
-                <h1 className="text-center font-bold text-2xl lg:text-4xl text-sub">Joining the room</h1>
+                <h1 className="text-center font-body font-bold text-2xl lg:text-4xl text-sub">Joining the room</h1>
                 <span><SpotifyLoader /></span>
             </div>
         </div>

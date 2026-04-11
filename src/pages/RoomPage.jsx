@@ -258,9 +258,9 @@ const RoomPage = () => {
 
                         <button
                           disabled={!song?.songId}
-                          onClick={() => { if (song?.songId) handleVoteSong(song.songId, -1) }}
+                          onClick={() => { handleVoteSong(song.songId, -1) }}
                           className={clsx(" p-2 sm:p-2.5 rounded-full cursor-pointer transition",
-                            song?.vote === -1 ? "text-primary cursor-not-allowed" : "text-main hover:bg-surface-highest active:bg-surface-high")}
+                            song?.vote === -1 ? "text-red-400 cursor-not-allowed" : "text-main hover:bg-surface-highest active:bg-surface-high")}
                         >
                           <ArrowDown className='size-3.5 sm:size-4' />
                         </button>
