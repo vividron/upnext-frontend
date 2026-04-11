@@ -15,7 +15,6 @@ export default function AppLayout() {
       <NavBar navLinks={navLinks} />
 
       <main className="relative flex-1 px-4 py-6 lg:px-8 lg:py-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(30,214,94,0.12),transparent_5%)] sm:bg-[radial-gradient(circle_at_top_left,rgba(30,214,94,0.12),transparent_10%)]"/>
         <Outlet />
       </main>
 
