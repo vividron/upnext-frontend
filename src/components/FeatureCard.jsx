@@ -1,4 +1,6 @@
 import clsx from "clsx"
+import { motion } from "framer-motion"
+import { slideRight, slideLeft, popUp } from "../animations";
 
 const FeatureCard = ({
     title,
@@ -8,11 +10,18 @@ const FeatureCard = ({
     reverse = false,
     children
 }) => {
+    const textAnimation = reverse ? slideRight : slideLeft;
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-25 items-center py-12 md:py-16">
-            <div className={clsx(
-                "flex flex-col w-full h-full gap-10 md:gap-5 justify-between",
-                reverse ? "md:order-1" : "md:order-2")}
+            <motion.div
+                variants={textAnimation}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                className={clsx(
+                    "flex flex-col w-full h-full gap-10 md:gap-5 justify-between",
+                    reverse ? "md:order-1" : "md:order-2")}
             >
                 {/* Tag */}
                 {tag && (
@@ -32,24 +41,29 @@ const FeatureCard = ({
                 </p>
 
                 {children}
-            </div>
-            {/* 14/8 */}
-            <div className={clsx("rounded-2xl border border-white/10 sm:px-5 bg-surface",
-                reverse ? "md:order-2" : "md:order-1")}
+            </motion.div>
+
+            <motion.div
+                variants={popUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                className={clsx("rounded-2xl border border-white/10 sm:px-5 bg-surface",
+                    reverse ? "md:order-2" : "md:order-1")}
             >
                 <div className="rounded-2xl sm:rounded-none overflow-hidden aspect-16:9 md:aspect-5/3">
                     <video
                         preload="none"
                         src={videoUrl}
                         autoPlay
-                        playsInline 
+                        playsInline
                         loop
                         muted
                         className="w-full h-full object-cover shrink-0"
                     />
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </div >
     )
 }
 

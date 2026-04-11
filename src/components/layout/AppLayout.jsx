@@ -4,9 +4,9 @@ import Footer from "./Footer.jsx";
 
 export default function AppLayout() {
   const navLinks = [
-    { name: "Rooms", to: "#rooms" },
-    { name: "Features", to: "#features" },
-    { name: "Applications", to: "#applications" }
+    { name: "Rooms", to: "/#rooms" },
+    { name: "Features", to: "/#features" },
+    { name: "Applications", to: "/#applications" }
   ]
 
   return (
