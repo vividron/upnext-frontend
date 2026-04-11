@@ -85,7 +85,7 @@ const Footer = ({ navLinks }) => {
                 <div className="h-px mt-5 bg-white/10" />
 
                 <p className="text-[15px] text-sub text-center font-medium">
-                    Built with <span className="text-primary">❤️</span> by <span className="text-main">Ronak Sakhala</span>
+                    Built with ❤️ by <span className="text-main">Ronak Sakhala</span>
                 </p>
             </div>
         </footer>
