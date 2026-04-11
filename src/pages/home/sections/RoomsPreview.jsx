@@ -100,6 +100,7 @@ const RoomsSection = () => {
                     <div className="h-full flex flex-col items-center justify-between">
                         <img
                             src="/images/sleeping-speaker.png"
+                            loading="lazy"
                             className="w-30 sm:w-40 md:w-50 object-contain opacity-80 rounded-3xl drop-shadow-[0_0_15px_rgba(29,185,84)] mb-8 md:mb-10"
                         />
 

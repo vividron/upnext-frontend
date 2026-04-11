@@ -1,6 +1,7 @@
 import HeroSection from "./sections/Hero.jsx"
 import RoomsSection from "./sections/RoomsPreview.jsx"
 import Features from "./sections/Features.jsx"
+import Applications from "./sections/Applications.jsx"
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
         </div>
       </div>
       <Features />
+      <Applications />
     </div>
   )
 }
