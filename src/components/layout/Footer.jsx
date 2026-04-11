@@ -1,5 +1,4 @@
 import { Airplay, CircleEqual, ListStart, Music } from "lucide-react"
-import { Link } from "react-router-dom"
 
 const Footer = ({ navLinks }) => {
     return (
@@ -47,14 +46,14 @@ const Footer = ({ navLinks }) => {
                         </h3>
                         <ul className="space-y-2 text-sm font-medium text-sub">
                             <li>
-                                <Link to="#" className="hover:text-primary active:text-primary transition hover:underline decoration-primary">
+                                <a href="/terms/#terms-hero" className="hover:text-primary active:text-primary transition hover:underline decoration-primary">
                                     Terms & Conditions
-                                </Link>
+                                </a>
                             </li>
                             <li>
-                                <Link to="#" className="hover:text-primary active:text-primary transition hover:underline decoration-primary">
+                                <a href="/privacy/#privacy-hero" className="hover:text-primary active:text-primary transition hover:underline decoration-primary">
                                     Privacy Policy
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>

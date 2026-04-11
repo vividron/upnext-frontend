@@ -8,6 +8,7 @@ import AuthCallbackPage from "./pages/AuthCallbackPage.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import PageNotFound from "./pages/PageNotFound.jsx";
 import JoinRoomPage from "./pages/JoinRoomPage.jsx";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage.jsx";
 
 function App() {
 
@@ -26,7 +27,14 @@ function App() {
       path: "/",
       element: <AppLayout />,
       children: [
-        { index: true, element: <HomePage /> },
+        {
+          index: true,
+          element: <HomePage />
+        },
+        {
+          path: "/terms",
+          element: <TermsAndConditionsPage />,
+        },
       ],
     },
     /* OAuth callback route*/
