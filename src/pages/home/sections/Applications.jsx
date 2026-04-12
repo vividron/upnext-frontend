@@ -7,7 +7,7 @@ const Applications = () => {
             <ApplicationCard
                 title="Cafés & Music-Driven Spaces"
                 description="Let customers shape the café atmosphere by matching their playlists or voting on songs, creating a shared, interactive vibe where everyone hears what they love."
-                imageUrl="/images/cafe.png"
+                imageUrl="/images/cafe.webp"
             />
 
             <ApplicationCard
@@ -15,14 +15,14 @@ const Applications = () => {
                 title="Fitness Spaces & Gyms"
                 description="In gyms or group workout sessions, music plays a huge role in motivation. With upNext, members can influence the playlist while working out, ensuring
                 high-energy tracks stay and less engaging ones get skipped. The queue evolves based on what keeps people energized. making workouts more immersive and enjoyable."
-                imageUrl="/images/gym.png"
+                imageUrl="/images/gym.webp"
             />
 
             <ApplicationCard
                 title="Parties & Social Hangouts"
                 description="Make every party collaborative. Guests vote for what plays next, ensuring everyone hears something they enjoy. without playlist conflicts and endless
                 skips."
-                imageUrl="/images/party.png"
+                imageUrl="/images/party.webp"
             />
 
         </section>

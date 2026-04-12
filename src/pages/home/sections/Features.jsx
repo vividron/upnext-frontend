@@ -48,7 +48,7 @@ const Features = () => {
                     benefits={[
                         "Works with any Spotify-connected device",
                         "Sync between app player and Spotify player state",
-                        "Player sync errors are detection"
+                        "Player sync error detection"
                     ]}
                 />
             </FeatureCard>

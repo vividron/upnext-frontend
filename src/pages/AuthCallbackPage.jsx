@@ -78,7 +78,7 @@ const AuthCallbackPage = () => {
 
                     {/* Spotify */}
                     <a href='https://open.spotify.com/' target="_blank" className="flex items-center">
-                        <img src="/logos/Spotify-Logo.png" alt="Spotify" className="h-18 object-contain" />
+                        <img src="/logos/Spotify-Logo.webp" alt="Spotify" className="h-18 object-contain" />
                     </a>
                 </div>
 
