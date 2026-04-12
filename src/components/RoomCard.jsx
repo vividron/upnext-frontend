@@ -48,7 +48,7 @@ const RoomCard = ({
                 }
                 {/*Join button */}
                 <SpotifyButton onClick={() => JoinRoom(room._id)} className="px-3! py-2! md:px-4.5! md:py-3! text-[0.6rem]! md:text-sm! font-semibold">
-                    Join
+                   {room?.isActive? "Join" : "Start"}
                 </SpotifyButton>
             </div>
         </div>
