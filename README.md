@@ -121,11 +121,6 @@ Handles:
 - Handling edge cases (disconnects, sync mismatch, stale state)
 - Visualizing player state from external Spotify source
 
-### ⚙️ System Integrations (High-Level)
-
-- 🎵 Spotify Web API (player state + playback control)
-- ⚡ Redis-backed backend (for real-time consistency)
-
 ---
 
 ## Installation
