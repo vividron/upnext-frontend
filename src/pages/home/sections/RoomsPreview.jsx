@@ -87,9 +87,9 @@ const RoomsSection = () => {
     };
 
     return (
-        <section id="rooms" className="w-full h-full p-4 lg:p-8">
+        <section id="rooms" className="w-full h-full lg:p-8">
             {/* Card */}
-            <div className="relative z-5 h-full backdrop-blur-xl bg-[rgba(31,31,31,0.7)] rounded-3xl p-6 shadow-xl border border-white/5">
+            <div className="relative z-5 h-full backdrop-blur-xl bg-[rgba(31,31,31,0.7)] rounded-3xl p-4 sm:p-6 shadow-xl border border-white/5">
 
                 {isLoading ? (
                     <div className="h-full flex items-center justify-center">

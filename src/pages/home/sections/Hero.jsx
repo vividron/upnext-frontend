@@ -1,6 +1,6 @@
 const HeroSection = () => {
     return (
-        <section id="hero" className="flex flex-col flex-1 gap-6 px-4 py-6">
+        <section id="hero" className="flex flex-col flex-1 gap-6 px-2 py-6">
             <div className="flex items-center gap-2 w-fit bg-surface-high px-4 py-2 rounded-full text-sm text-sub lg:text-[15px] text-sub uppercase">
                 <span className="w-2 h-2 bg-primary rounded-full" />
                 Join the Room. Vote the Vibe.

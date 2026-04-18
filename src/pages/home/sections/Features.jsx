@@ -4,7 +4,7 @@ import { ArrowDown, ArrowUp } from "lucide-react"
 
 const Features = () => {
     return (
-        <section id="features" className="space-y-10 sm:space-y-20 px-4">
+        <section id="features" className="space-y-10 sm:space-y-20 px-2">
 
             <FeatureCard
                 tag="realtime-sync"

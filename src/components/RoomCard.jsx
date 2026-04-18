@@ -13,7 +13,7 @@ const RoomCard = ({
     }) : null;
 
     return (
-        <div className="flex items-center justify-between group bg-surface-high rounded-2xl px-4 py-4 hover:bg-surface-highest transition">
+        <div className="flex items-center justify-between group bg-surface-high rounded-2xl px-2 py-3 sm:p-4 hover:bg-surface-highest transition">
 
             {/* Left */}
             <div className="flex items-center gap-3 md:gap-4">

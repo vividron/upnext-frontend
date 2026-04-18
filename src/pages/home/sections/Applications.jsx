@@ -2,7 +2,7 @@ import ApplicationCard from "../../../components/ApplicationCard.jsx"
 
 const Applications = () => {
     return (
-        <section id="applications" className="space-y-10 sm:space-y-20 px-4">
+        <section id="applications" className="space-y-10 sm:space-y-20 px-2">
 
             <ApplicationCard
                 title="Cafés & Music-Driven Spaces"
