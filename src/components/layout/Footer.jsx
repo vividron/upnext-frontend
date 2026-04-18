@@ -58,6 +58,30 @@ const Footer = ({ navLinks }) => {
                         </ul>
                     </div>
 
+                    {/* Contact */}
+                    <div className="flex flex-col gap-4">
+                        <h3 className="text-sm font-semibold text-main tracking-wide">
+                            Contact
+                        </h3>
+                        <ul className="space-y-2 text-sm font-medium text-sub">
+                            <li>
+                                <a href="mailto:ronaks21205@gmail.com" className="flex items-center gap-2 hover:text-primary active:text-primary transition hover:underline decoration-primary">
+                                    Gmail
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/ronak-sakhala-1b81272b0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary active:text-primary transition hover:underline decoration-primary">
+                                    LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/vividron" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary active:text-primary transition hover:underline decoration-primary">
+                                    GitHub
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                     {/* Features */}
                     <div className="flex flex-col gap-4">
                         <h3 className="text-sm font-semibold text-main tracking-wide">

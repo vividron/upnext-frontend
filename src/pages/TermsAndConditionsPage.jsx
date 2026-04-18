@@ -199,8 +199,7 @@ const TermsAndConditionsPage = () => {
             <section className="rounded-3xl border border-white/10 bg-surface p-6 shadow-xl sm:p-8">
               <h2 className="text-2xl font-semibold text-main">Contact and Notice</h2>
               <p className="mt-3 leading-7 text-sub">
-                If you have questions about these Terms, contact the website owner through the
-                support email, contact form, or business details published on the site.
+                If you have questions about these Terms, contact the website owner via email or by using LinkedIn or GitHub. published on the site.
               </p>
             </section>
           </div>
