@@ -12,6 +12,7 @@ const AuthCallbackPage = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [loading, setLoading] = useState(false);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
         const token = searchParams.get("token");
@@ -109,7 +110,7 @@ const AuthCallbackPage = () => {
                     </li>
                 </ul>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                     <div className="px-3 py-1 flex items-center gap-2 text-xs rounded-full bg-white/5 border border-white/10">
                         <RefreshCcw className='size-4 text-blue-400' />
                         <span>Instant Vote Sync</span>
@@ -126,13 +127,27 @@ const AuthCallbackPage = () => {
                     </div>
                 </div>
 
-                <SpotifyButton onClick={() => spotifyLogin()} disabled={loading} loading={loading} className="w-full text-[15px]">
+                {/* Agreement Checkbox */}
+                <div className="flex items-start gap-3 mb-6">
+                    <input 
+                        type="checkbox" 
+                        id="agree" 
+                        checked={checked} 
+                        onChange={(e) => setChecked(e.target.checked)} 
+                        className="mt-1 w-4 h-4 cursor-pointer" 
+                    />
+                    <label htmlFor="agree" className="text-sm text-sub leading-relaxed">
+                        I agree to the <Link to="/terms" className="text-main underline hover:text-green-400">Terms and Conditions</Link> and <Link to="/privacy" className="text-main underline hover:text-green-400">Privacy Policy</Link>.
+                    </label>
+                </div>
+
+                <SpotifyButton onClick={() => spotifyLogin()} disabled={loading || !checked} loading={loading} className="w-full text-[15px]">
                     Continue with Spotify
                 </SpotifyButton>
 
                 {/* Footer */}
                 <p className="text-xs text-muted text-center mt-6">
-                    By continuing, you allow UpNext to manage your Spotify playback.
+                    By checking above, you agree to our Terms and Privacy Policy.
                 </p>
             </div>
         </div>
